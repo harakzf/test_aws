@@ -47,7 +47,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'tamplates')],                      # テンプレート参照設定
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],                      # テンプレート参照設定
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
