@@ -91,7 +91,7 @@ DATABASES = {
         'NAME': 'testDB',                                                   # RDS作成時に設定した「DBインスタンス識別子（DB名）」に合わせる
         # 'USER': 'root',
         'USER': 'testuser',                                                 # AWSで設定したDBユーザ用
-        'PASSWORD': 'rootpassword',
+        'PASSWORD': 'testpassword',                                         # PWもRDSで設定したものに変更
         # 'HOST': 'localhost',
         'HOST': 'testdb.cfoy0i3ytiui.ap-northeast-1.rds.amazonaws.com',     # RDSのエンドポイントを設定
         'PORT': '3306',
