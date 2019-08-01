@@ -89,10 +89,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'testdb',
-        'USER': 'root',
+        # 'USER': 'root',
+        'USER': 'testuser',                                                 # AWSで設定したDBユーザ用
         'PASSWORD': 'rootpassword',
         # 'HOST': 'localhost',
-        'HOST': 'testdb.cfoy0i3ytiui.ap-northeast-1.rds.amazonaws.com',
+        'HOST': 'testdb.cfoy0i3ytiui.ap-northeast-1.rds.amazonaws.com',     # RDSのエンドポイントを設定
         'PORT': '3306',
     }
 }
