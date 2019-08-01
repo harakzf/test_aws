@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'testdb',
+        'NAME': 'testDB',                                                   # RDS作成時に設定した「DBインスタンス識別子（DB名）」に合わせる
         # 'USER': 'root',
         'USER': 'testuser',                                                 # AWSで設定したDBユーザ用
         'PASSWORD': 'rootpassword',
