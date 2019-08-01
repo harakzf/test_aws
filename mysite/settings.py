@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
+'''AWS動作確認用アプリ'''
 
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# 追記5
+
 PROJECT_NAME = os.path.basename(BASE_DIR)
 
 
@@ -15,13 +15,11 @@ PROJECT_NAME = os.path.basename(BASE_DIR)
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'x5nbaoq1tsoe^l86s48&sms@pc97qb1xn)=w2r9d(4xu(8qq@u'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*']                           # 全てのホストからのアクセスを許容
 
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -30,8 +28,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bootstrap4',  #追加３
-    'shop', # 追記
+    'bootstrap4',                               # Bootstrap4(CSSフレームワーク)利用
+    'shop',                                     # 開発アプリを記述←アプリをDjangoFW側に認識させるため
 ]
 
 MIDDLEWARE = [
@@ -49,7 +47,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'tamplates')],                      # テンプレート参照設定
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -65,34 +63,13 @@ TEMPLATES = [
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
-# DATABASES = {
-#     # 'default': {
-#     #     'ENGINE': 'django.db.backends.sqlite3',
-#     #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     # }
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'test_search',
-#         'USER': 'root',
-#         'PASSWORD': 'rootpassword',
-#         'HOST': 'localhost',
-#         'PORT': '3306',
-#     }
-#
-#
-# }
-
+# DB設定
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'testDB',                                                   # RDS作成時に設定した「DBインスタンス識別子（DB名）」に合わせる
-        # 'USER': 'root',
+        'NAME': 'testdb',                                                   # RDS作成時に設定した「最初のデータベース名」に合わせる→RDSにアクセスしなくて済む
         'USER': 'testuser',                                                 # AWSで設定したDBユーザ用
         'PASSWORD': 'testpassword',                                         # PWもRDSで設定したものに変更
-        # 'HOST': 'localhost',
         'HOST': 'testdb.cfoy0i3ytiui.ap-northeast-1.rds.amazonaws.com',     # RDSのエンドポイントを設定
         'PORT': '3306',
     }
@@ -146,20 +123,4 @@ STATIC_ROOT = '/var/www/{}/static' .format(PROJECT_NAME)
 # セッション設定
 SESSION_COOKIE_AGE = 600 # 10分
 SESSION_SAVE_EVERY_REQUEST = True # 1リクエストごとにセッション情報を更新
-
-
-#
-# if DEBUG:
-#     def show_toolbar(request):
-#         return True
-#
-#     INSTALLED_APPS += (
-#             'debug_toolbar',
-#         )
-#     MIDDLEWARE += (
-#             'debug_toolbar.middleware.DebugToolbarMiddleware',
-#         )
-#     DEBUG_TOOLBAR_CONFIG = {
-#             'SHOW_TOOLBAR_CALLBACK' : show_toolbar,
-#         }
 
