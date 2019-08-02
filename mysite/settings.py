@@ -70,7 +70,7 @@ DATABASES = {
         'NAME': 'testdb',                                                   # RDS作成時に設定した「最初のデータベース名」に合わせる→RDSにアクセスしなくて済む
         'USER': 'testuser',                                                 # AWSで設定したDBユーザ用
         'PASSWORD': 'testpassword',                                         # PWもRDSで設定したものに変更
-        'HOST': 'testdb.cfoy0i3ytiui.ap-northeast-1.rds.amazonaws.com',     # RDSのエンドポイントを設定
+        'HOST': 'test1.cfoy0i3ytiui.ap-northeast-1.rds.amazonaws.com',      # RDSのエンドポイントを設定
         'PORT': '3306',
     }
 }
